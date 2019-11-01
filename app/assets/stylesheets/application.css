@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+ font: normal 14px Roboto
+ }

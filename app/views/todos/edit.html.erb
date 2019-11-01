@@ -1,0 +1,10 @@
+<h1>Edit your todo</h1>
+
+<%= form_for @todo do |f| %>
+  <%= label_tag('Title:', :title)%>
+  <%= f.text_field :title %></br>
+
+  <%= label_tag('Description:', :description)%>
+  <%= f.text_field :description %></br>
+  <%= f.submit "Update" %>
+<% end %>

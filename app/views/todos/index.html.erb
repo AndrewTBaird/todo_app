@@ -1,5 +1,15 @@
-<h1> Index Page! </h1>
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-<% @todos.each do |todo| %>
-	<li><%= todo.title %></li>
-<% end %>
+<h1> Todo List </h1>
+<%= link_to("New Todo Item", new_todo_path) %>
+
+<div class="todo_container">
+  <% @todos.each do |todo| %>
+    <div class="todo_item">
+      <%= link_to(todo.title, todo_path(todo.id)) %><br><br>
+      <%= link_to "edit", edit_todo_path(todo[:id]) %>
+      <%= link_to "delete", todo, method: :delete, data: { confirm: "You sure?" }%>
+    </div>
+  <% end %>
+</div>
+
