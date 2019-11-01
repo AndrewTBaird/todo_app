@@ -6,16 +6,26 @@ a {
   color: inherit;
 }
 
+.all_todos_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.all_todos_item {
+  display: grid
+}
+
 .todo_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px 100px;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 }
 
 .todo_item {
-  width: 160px;
-  height: 100px;
   border-radius: 8px;
   background-color: cornsilk;
   position: relative;
