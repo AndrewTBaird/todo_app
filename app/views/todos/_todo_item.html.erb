@@ -1,0 +1,11 @@
+<div class="todo_item">
+  <div class="todo_item_content">
+    <%= link_to(todo.title, todo_path(todo.id)) %>
+  </div>
+  <div class="todo_item_actions">
+    <%= link_to "mark complete", todo_path(todo, todo: {completed: true}), method: :put %>
+    <%= link_to "edit", edit_todo_path(todo[:id]) %>
+    <%= link_to "delete", todo, method: :delete, data: { confirm: "You sure?" }%>
+  </div>
+
+</div>
