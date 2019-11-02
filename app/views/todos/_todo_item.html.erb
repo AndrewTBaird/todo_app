@@ -1,14 +1,11 @@
-<div class="todo_item">
-  <div class="todo_item_content">
+<div class="todo-card">
+  <div style="display:inline;">
     <%= link_to(todo.content, todo_path(todo.id)) %>
   </div>
 
-  <div class='todo_item_edit'>
+  <div style="float:right;display:inline;">
     <%= link_to image_tag("check_icon.png",height: 24, width: 24), todo_path(todo, todo: {completed: true}), method: :put %>
-  </div>
-  <div class="todo_item_actions">
     <%= link_to image_tag("edit_icon.png", height: 24, width: 24), edit_todo_path(todo[:id]) %>
     <%= link_to image_tag("delete_new_icon.png", height: 24, width: 24), todo, method: :delete%>
   </div>
-
 </div>

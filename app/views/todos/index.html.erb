@@ -1,43 +1,75 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-<div class="all_todos_container">
-  <div class="all_todos_item">
-    <div class="progress-title">Andrew + Amanda Todo List</div>
-  </div>
-  <div class="all_todos_item">
-   <%= link_to(image_tag("add_new_icon.png", height: '32', width: '32'), new_todo_path) %>
-    <%= form_for Category.new do |f| %>
-      Category name: <%= f.text_field :name %><br />
-      <%= f.submit %>
-    <% end %>
-  </div>
-
-</div>
-
-<div class="all_todos_container">
-  <div class="all_todos_item">
-    <div class="progress-title">
-      In Progress:
+<div class="root">
+  <%= link_to(image_tag("add_new_icon.png", height: '32', width: '32'), new_todo_path) %>
+  <div class="grid-container-root">
+    <div class="grid-container-root-item">
+      <div class="grid-container-all-todos">
+        <div class="grid-item-all-todos">
+          <div class="todo-container">
+            <% @todos.each do |todo| %>
+              <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
+            <% end %>
+          </div>
+        </div>
+        Completed
+        <div class="grid-item-all-todos">
+          <div class="todo-container">
+            <% @todos.each do |todo| %>
+              <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="todo_container">
-      <% @todos.each do |todo| %>
-        <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="all_todos_item">
-    <div class="progress-title">
-      Completed:
-    </div>
-    <div class="todo_container">
-      <% @todos.each do |todo| %>
-        <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
-      <% end %>
+    <div class="grid-container-root-item">
+      <!--    drawer will go here   -->
     </div>
   </div>
 </div>
+
+
+
+
+
+<!--<div class="all_todos_container">-->
+<!--  <div class="all_todos_item">-->
+<!--    <div class="progress-title">Andrew + Amanda Todo List</div>-->
+<!--  </div>-->
+<!--  <div class="all_todos_item">-->
+   <%#= link_to(image_tag("add_new_icon.png", height: '32', width: '32'), new_todo_path) %>
+    <%#= form_for Category.new do |f| %>
+<!--      Category name: <%#= f.text_field :name %><br />-->
+      <%#= f.submit %>
+    <%# end %>
+<!--  </div>-->
+
+<!--</div>-->
+
+<!--<div class="all_todos_container">-->
+<!--  <div class="all_todos_item">-->
+<!--    <div class="progress-title">-->
+<!--      In Progress:-->
+<!--    </div>-->
+
+<!--    <div class="todo_container">-->
+      <%# @todos.each do |todo| %>
+        <%#= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="all_todos_item">-->
+<!--    <div class="progress-title">-->
+<!--      Completed:-->
+<!--    </div>-->
+<!--    <div class="todo_container">-->
+      <%# @todos.each do |todo| %>
+        <%#= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 
