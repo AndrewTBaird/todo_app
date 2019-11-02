@@ -9,6 +9,7 @@ class TodosController < ApplicationController
 
   def new
     @todo = Todo.new
+    @categories = Category.all
   end
 
   def create
@@ -22,7 +23,7 @@ class TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
-    @todo.update! todo_params
+    @todo.update todo_params
     if todo_params[:completed].present?
       redirect_to root_path
     else
