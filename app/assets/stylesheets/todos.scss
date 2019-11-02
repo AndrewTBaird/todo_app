@@ -1,9 +1,11 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-a {
-  text-decoration:none;
-  color: inherit;
+/* Add a black background color to the top navigation */
+
+.progress-title {
+  padding-bottom: 8px;
+  font-size:18px;
 }
 
 .all_todos_container {
@@ -11,10 +13,11 @@ a {
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+  padding: 32px
 }
 
 .all_todos_item {
-  display: grid
+  display: grid;
 }
 
 .todo_container {

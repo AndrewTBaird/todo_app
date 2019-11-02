@@ -15,5 +15,16 @@
  */
 
 body {
- font: normal 14px Roboto
+    font: normal 14px Roboto;
+    color: black;
  }
+
+p {
+    font: normal 14px Roboto;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,11 +1,20 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-<h1> Todo List </h1>
-<%= link_to(image_tag("add_icon.png"), new_todo_path) %>
+<div class="all_todos_container">
+  <div class="all_todos_item">
+    <div class="progress-title">Andrew + Amanda Todo List</div>
+  </div>
+  <div class="all_todos_item">
+   <%= link_to(image_tag("add_new_icon.png", height: '32', width: '32'), new_todo_path) %>
+  </div>
+</div>
 
 <div class="all_todos_container">
   <div class="all_todos_item">
-    In Progress:
+    <div class="progress-title">
+      In Progress:
+    </div>
+
     <div class="todo_container">
       <% @todos.each do |todo| %>
         <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
@@ -14,7 +23,9 @@
   </div>
 
   <div class="all_todos_item">
-  Completed:
+    <div class="progress-title">
+      Completed:
+    </div>
     <div class="todo_container">
       <% @todos.each do |todo| %>
         <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>

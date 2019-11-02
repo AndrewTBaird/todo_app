@@ -4,11 +4,11 @@
   </div>
 
   <div class='todo_item_edit'>
-    <%= link_to image_tag("done_icon.png"), todo_path(todo, todo: {completed: true}), method: :put %>
+    <%= link_to image_tag("check_icon.png",height: 24, width: 24), todo_path(todo, todo: {completed: true}), method: :put %>
   </div>
   <div class="todo_item_actions">
-    <%= link_to image_tag("edit_icon.png"), edit_todo_path(todo[:id]) %>
-    <%= link_to image_tag("delete_icon.png"), todo, method: :delete, data: { confirm: "You sure?" }%>
+    <%= link_to image_tag("edit_icon.png", height: 24, width: 24), edit_todo_path(todo[:id]) %>
+    <%= link_to image_tag("delete_new_icon.png", height: 24, width: 24), todo, method: :delete%>
   </div>
 
 </div>
