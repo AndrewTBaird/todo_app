@@ -6,7 +6,8 @@
 
 .grid-container-root {
   display: grid;
-  grid-template-columns: 1fr 200px
+  grid-template-columns: 1fr 200px;
+  grid-gap: 8px;
 }
 
 .grid-container-root-item {
