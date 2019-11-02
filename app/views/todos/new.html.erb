@@ -2,5 +2,8 @@
 <%= form_for @todo do |f| %>
   <%= label_tag(:content, "Content") %>
   <%= f.text_area :content %><br>
+
+  <%= label_tag(:category, "Category") %>
+  <%= f.select :category, [nil, 'work', 'personal', 'christmas']%>
   <%= f.submit "Create" %>
 <% end %>
