@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
 	def index
 		@todos = Todo.all
+    @categories = Category.all
   end
 
   def show

@@ -1,0 +1,11 @@
+Chore categories
+<% @categories.each do |category| %>
+  <div class="category-item">
+    - <%= category.name %>
+  </div>
+<% end %>
+<div>
+  <%= form_for Category.new do |f| %>
+      <%= f.text_field :name %><br />
+  <% end %>
+</div>
