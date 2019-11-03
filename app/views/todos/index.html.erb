@@ -9,7 +9,6 @@
         </div>
         <div>
           <%= button_to("New chore", new_todo_path, :method => :get, :class => 'add-button') %>
-
         </div>
         <div>
           <%= render partial: 'categories/category_list' %>
@@ -17,22 +16,17 @@
       </div>
     </div>
     <div class="grid-container-root-item">
-      <div class="grid-container-all-todos">
-        <div class="grid-item-all-todos">
-          <div class="todo-container">
-            <% @todos.each do |todo| %>
-              <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
-            <% end %>
-          </div>
-        </div>
-        Completed
-        <div class="grid-item-all-todos">
-          <div class="todo-container">
-            <% @todos.each do |todo| %>
-              <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
-            <% end %>
-          </div>
-        </div>
+      <div class="status-label">In progress</div>
+      <div class="todo-container">
+        <% @todos.each do |todo| %>
+          <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
+        <% end %>
+      </div>
+      <div class="status-label">Completed</div>
+      <div class="todo-container">
+        <% @todos.each do |todo| %>
+          <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
+        <% end %>
       </div>
     </div>
   </div>
