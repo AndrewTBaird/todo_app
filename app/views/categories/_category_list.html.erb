@@ -1,7 +1,12 @@
-Chore categories
+<div style="font-size:16px;padding-bottom:8px;">Filter by category</div>
+  <div class="category-item">
+    <%= check_box_tag 'all', 0 %>
+    All
+  </div>
 <% @categories.each do |category| %>
   <div class="category-item">
-    - <%= category.name %>
+    <%= check_box_tag category.name, category.id %>
+    <%= category.name %>
   </div>
 <% end %>
 <div>
