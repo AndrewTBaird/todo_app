@@ -1,5 +1,6 @@
 <div style="font-size:16px;padding-bottom:8px;">Filter by category</div>
 <%= form_tag categories_path, :method=> 'get' do %>
+  <div style="padding-bottom:8px;"><%= submit_tag 'Filter' %></div>
   <div class="category-item">
     <%= check_box_tag 'show_all', 1 %>
     All
@@ -10,10 +11,9 @@
       <%= category.name %>
     </div>
   <% end %>
-  <%= submit_tag 'Filter' %>
 <% end %>
 <div>
   <%= form_for Category.new do |f| %>
-      <%= f.text_field :name %><br />
+      <%= f.text_field :name, placeholder: 'new category' %><br />
   <% end %>
 </div>
