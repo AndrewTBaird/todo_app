@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
 	def index
 		@todos = Todo.all
-    @categories = Category.all
   end
 
   def show
@@ -15,7 +14,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.create todo_params
-    redirect_to todos_path(@todo)
+    redirect_to root_path
   end
 
   def edit

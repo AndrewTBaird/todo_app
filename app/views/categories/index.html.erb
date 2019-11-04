@@ -4,6 +4,7 @@
   <div class="grid-container-root">
     <div class="grid-container-root-item">
       <div class="drawer-background">
+        <% @todos = @categories.map { |category| category.todos }.flatten %>
         <div style="font-size: 16px;">
           ATB Chore Board
         </div>
