@@ -1,13 +1,16 @@
 <div style="font-size:16px;padding-bottom:8px;">Filter by category</div>
+<%= form_tag categories_path, :method=> 'get' do %>
   <div class="category-item">
-    <%= check_box_tag 'all', 0 %>
+    <%= check_box_tag 'show_all', 1 %>
     All
   </div>
-<% @categories.each do |category| %>
-  <div class="category-item">
-    <%= check_box_tag category.name, category.id %>
-    <%= category.name %>
-  </div>
+  <% @categories.each do |category| %>
+    <div class="category-item">
+      <%= check_box_tag 'category_ids[]', category.id %>
+      <%= category.name %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Filter' %>
 <% end %>
 <div>
   <%= form_for Category.new do |f| %>

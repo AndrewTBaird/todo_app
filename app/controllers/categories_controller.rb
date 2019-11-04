@@ -1,6 +1,14 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    if params[:category_ids].present?
+      if params[:category_ids].include?(0)
+        @categories = Category.all
+      else
+        @categories = Category.where(id: params[:category_ids])
+      end
+    else
+      @categories = Category.all
+    end
   end
 
   def create
