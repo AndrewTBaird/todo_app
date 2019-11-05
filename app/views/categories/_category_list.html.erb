@@ -2,13 +2,18 @@
 <%= form_tag categories_path, :method=> 'get' do %>
   <div style="padding-bottom:8px;"><%= submit_tag 'Filter' %></div>
   <div class="category-item">
-    <%= check_box_tag 'show_all', 1 %>
-    All
+    <div>
+      <%= check_box_tag 'show_all', 1 %>
+      All
+    </div>
   </div>
   <% @categories.each do |category| %>
     <div class="category-item">
-      <%= check_box_tag 'category_ids[]', category.id %>
-      <%= category.name %>
+      <div>
+        <%= check_box_tag 'category_ids[]', category.id %>
+        <%= category.name %>
+      </div>
+      <div class="category-color-swatch" style="background-color:<%= colors[category.id % colors.length] %> "></div>
     </div>
   <% end %>
 <% end %>
@@ -17,5 +22,3 @@
       <%= f.text_field :name, placeholder: 'new category' %><br />
   <% end %>
 </div>
-
-

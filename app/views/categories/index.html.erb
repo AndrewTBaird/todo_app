@@ -1,11 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<% colors = %w(#F97B58 #F2AD6A #ECDA9A #D1EEEA #85C4C9 #4F90A6 #2196F3 #4EBAAA #7CB342, #757575, #FFB300, #FF6F60) %>
+<% colors = %w(#F97B58 #F2AD6A #ECDA9A #D1EEEA #85C4C9 #4F90A6 #2196F3 #4EBAAA #7CB342 #757575 #FFB300 #FF6F60) %>
 
 <div class="root">
   <div class="grid-container-root">
     <div class="grid-container-root-item">
       <div class="drawer-background">
-        <% @todos = @categories.map { |category| category.todos }.flatten %>
+        <% todos = @categories.map { |category| category.todos }.flatten %>
         <div style="font-size: 16px;">
           ATB Chore Board
         </div>
@@ -13,21 +13,21 @@
           <%= button_to("New chore", new_todo_path, :method => :get, :class => 'add-button') %>
         </div>
         <div>
-          <%= render partial: 'categories/category_list' %>
+          <%= render partial: 'categories/category_list', locals: { colors: colors } %>
         </div>
       </div>
     </div>
     <div class="grid-container-root-item">
       <div class="status-label">In progress</div>
       <div class="todo-container">
-        <% @todos.each do |todo| %>
-          <%= render partial: "todos/todo_item", locals: {todo: todo, color: colors[todo.category_id % colors.length]} unless todo.completed %>
+        <% todos.each do |todo| %>
+          <%= render partial: "todos/todo_item", locals: { todo: todo, colors: colors } unless todo.completed %>
         <% end %>
       </div>
       <div class="status-label">Completed</div>
       <div class="todo-container">
-        <% @todos.each do |todo| %>
-          <%= render partial: "todos/todo_item", locals: {todo: todo, color: colors[todo.category_id % colors.length]} if todo.completed %>
+        <% todos.each do |todo| %>
+          <%= render partial: "todos/todo_item", locals: { todo: todo, colors: colors } if todo.completed %>
         <% end %>
       </div>
     </div>
