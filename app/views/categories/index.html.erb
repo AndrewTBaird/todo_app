@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<% colors = %w(#F97B58 #F2AD6A #ECDA9A #D1EEEA #85C4C9 #4F90A6 #2196F3 #4EBAAA #7CB342, #757575, #FFB300, #FF6F60) %>
 
 <div class="root">
   <div class="grid-container-root">
@@ -20,13 +21,13 @@
       <div class="status-label">In progress</div>
       <div class="todo-container">
         <% @todos.each do |todo| %>
-          <%= render partial: "todos/todo_item", locals: {todo: todo} unless todo.completed %>
+          <%= render partial: "todos/todo_item", locals: {todo: todo, color: colors[todo.category_id % colors.length]} unless todo.completed %>
         <% end %>
       </div>
       <div class="status-label">Completed</div>
       <div class="todo-container">
         <% @todos.each do |todo| %>
-          <%= render partial: "todos/todo_item", locals: {todo: todo} if todo.completed %>
+          <%= render partial: "todos/todo_item", locals: {todo: todo, color: colors[todo.category_id % colors.length]} if todo.completed %>
         <% end %>
       </div>
     </div>

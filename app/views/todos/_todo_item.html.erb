@@ -2,7 +2,7 @@
   <%= link_to(todo.content, todo_path(todo.id)) %>
 
   <div style="position:absolute;top:8px;right:8px;">
-    <span><%= todo.category.name %></span>
+    <span class="category-chip" style="background-color:<%= color %>"><%= todo.category.name %></span>
     <%= link_to image_tag("check_icon.png",height: 24, width: 24, class: "item-actions"), todo_path(todo, todo: {completed: true}), method: :put %>
     <%= link_to image_tag("edit_icon.png", height: 24, width: 24, class: "item-actions"), edit_todo_path(todo[:id]) %>
     <%= link_to image_tag("delete_new_icon.png", height: 24, width: 24, class: "item-actions"), todo, method: :delete%>
