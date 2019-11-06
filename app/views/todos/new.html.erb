@@ -1,9 +1,0 @@
-<h1>Create a New Todo</h1>
-<%= form_for @todo do |f| %>
-  <%= label_tag(:content, "Content") %>
-  <%= f.text_area :content %><br>
-
-  <%= label_tag(:category, "Category") %>
-  <%= f.select :category_id, @categories.collect{ |c| [c.name, c.id] }%>
-  <%= f.submit "Create" %>
-<% end %>

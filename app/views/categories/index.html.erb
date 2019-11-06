@@ -10,14 +10,20 @@
           ATB Chore Board
         </div>
         <div>
-          <%= button_to("New chore", new_todo_path, :method => :get, :class => 'add-button') %>
+          <div style="font-size: 16px;">
+            New Chore
+          </div>
+          <%= form_for Todo.new do |f| %>
+            <%= f.text_area :content %>
+            <%= f.select :category_id, @categories.collect{ |c| [c.name, c.id] }%>
+          <% end %>
         </div>
         <div>
           <%= render partial: 'categories/category_list', locals: { colors: colors } %>
         </div>
       </div>
     </div>
-    <div class="grid-container-root-item">
+    <div class="grid-container-root-item" style="padding:16px;">
       <div class="status-label">In progress</div>
       <div class="todo-container">
         <% todos.each do |todo| %>

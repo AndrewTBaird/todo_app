@@ -6,7 +6,6 @@
 .grid-container-root {
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-gap: 8px;
 }
 
 .grid-container-root-item {
@@ -36,6 +35,10 @@
 .item-actions {
   vertical-align: middle;
   margin-bottom: 0.25em;
+}
+
+full-width {
+  width: 75%;
 }
 
 //label
