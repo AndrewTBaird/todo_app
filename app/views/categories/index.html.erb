@@ -15,7 +15,8 @@
           </div>
           <%= form_for Todo.new do |f| %>
             <%= f.text_area :content %>
-            <%= f.select :category_id, @categories.collect{ |c| [c.name, c.id] }%>
+            <%= f.select :category_id, @categories.collect{ |c| [c.name, c.id] }%><br><br>
+            <%= f.submit "Create"%>
           <% end %>
         </div>
         <div>
