@@ -19,16 +19,13 @@ class TodosController < ApplicationController
 
   def edit
     @todo = Todo.find(params[:id])
+    @categories = Category.all
   end
 
   def update
     @todo = Todo.find(params[:id])
     @todo.update todo_params
-    if todo_params[:completed].present?
-      redirect_to root_path
-    else
-      redirect_to todo_path(@todo)
-    end
+    redirect_to root_path
   end
 
   def destroy

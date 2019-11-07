@@ -1,7 +1,9 @@
-<h1>Edit your todo</h1>
+<div style="padding:16px;">
+  <h1>Edit your todo</h1>
 
-<%= form_for @todo do |f| %>
-  <%= label_tag('Content:', :content)%>
-  <%= f.text_field :content %></br>
-  <%= f.submit "Update" %>
-<% end %>
+  <%= form_for @todo do |f| %>
+    <%= f.text_area :content %><br />
+    <%= f.select :category_id, @categories.collect{ |c| [c.name, c.id] }%>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>
